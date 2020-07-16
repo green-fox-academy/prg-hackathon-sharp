@@ -14,7 +14,6 @@ namespace programmersGuide
         {
             services.AddMvc();
             ConfigureDatabase(services);
-            services.AddDbContext<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +35,7 @@ namespace programmersGuide
 
         protected virtual void ConfigureDatabase(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>();
         }
     }
 }
