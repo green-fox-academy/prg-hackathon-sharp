@@ -29,10 +29,5 @@ namespace programmersGuide.Models.DTOs
             UXRating = review.UXRating;
             ReviewBody = review.ReviewBody;
         }
-
-        public List<ReviewDTO> ToListReviewDTO(List<Review> reviews)
-        {
-            var reviewDTO = 
-        }
     }
 }
