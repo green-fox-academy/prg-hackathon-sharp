@@ -13,9 +13,7 @@ namespace programmersGuide.Models
         public DateTime Time {get; set;}
         public string Name { get; set; }  
         public Role Role { get; set; }
-        public Int16 QuizRating { get; set; }
-        public Int16 ContentRating { get; set; }
-        public Int16 UXRating { get; set; }
+        public Int16 Rating { get; set; }
         public string ReviewBody { get; set; }
 
         public Review(ReviewDTO reviewDTO)
@@ -23,9 +21,7 @@ namespace programmersGuide.Models
             Time = reviewDTO.Time ?? default;
             Name = reviewDTO.Name ?? default;
             Role = reviewDTO.Role ?? default;
-            QuizRating = reviewDTO.QuizRating ?? default;
-            ContentRating = reviewDTO.ContentRating ?? default;
-            UXRating = reviewDTO.UXRating ?? default;
+            Rating = reviewDTO.Rating ?? default;
             ReviewBody = reviewDTO.ReviewBody ?? default;
         }
     }
