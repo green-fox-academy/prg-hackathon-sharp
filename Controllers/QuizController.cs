@@ -3,11 +3,11 @@ using programmersGuide.Services;
 
 namespace programmersGuide.Controllers
 {
-    public class HomeController : Controller
+    public class QuizController : Controller
     {
         private readonly QuizService quizService;
 
-        public HomeController(QuizService quizService)
+        public QuizController(QuizService quizService)
         {
             this.quizService = quizService;
         }
