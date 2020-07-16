@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using programmersGuide.Models;
 using programmersGuide.Models.Entities;
 
 namespace programmersGuide.Context
@@ -7,6 +8,7 @@ namespace programmersGuide.Context
     {
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Quiz> Quiz { get; set; }
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }

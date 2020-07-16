@@ -1,29 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using programmersGuide.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly QuizService quizService;
+        private readonly IReviewService reviewService;
 
-        public HomeController(QuizService quizService)
+        public HomeController(IReviewService reviewService)
         {
-            this.quizService = quizService;
+            this.reviewService = reviewService;
         }
 
-        [HttpPost("quiz")]
-        public IActionResult QuizAnswers(string answer)
+        public IActionResult Index()
         {
-            var result = quizService.ProcessAnswers(answer);
-            return Ok(result);
-        }
-
-        [HttpGet("counter")]
-        public IActionResult AnswerCounter()
-        {
-            var counter = quizService.ReturnCounters();
-            return Ok(counter);
+            return View();
         }
     }
 }
