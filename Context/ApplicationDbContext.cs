@@ -1,15 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using programmersGuide.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using programmersGuide.Models.Entities;
 
 namespace programmersGuide.Context
 {
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Quiz> Quiz { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
