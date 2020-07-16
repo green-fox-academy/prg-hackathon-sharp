@@ -15,6 +15,7 @@ namespace programmersGuide.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
         }
     }
 }

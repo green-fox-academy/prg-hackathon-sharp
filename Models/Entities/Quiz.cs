@@ -1,10 +1,11 @@
-﻿namespace programmersGuide.Models.Entities
+﻿using programmersGuide.Models.DTOs;
+
+namespace programmersGuide.Models.Entities
 {
     public class Quiz
     {
         public int Id { get; set; }
-        public int FullStack { get; set; }
-        public int BackEnd { get; set; }
-        public int FrontEnd { get; set; }
+        public Role ResultType { get; set; }
+        public long ResultCount { get; set; }
     }
 }

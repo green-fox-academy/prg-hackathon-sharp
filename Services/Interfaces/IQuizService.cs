@@ -9,6 +9,6 @@ namespace programmersGuide.Services.Interfaces
     public interface IQuizService
     {
         public string ProcessAnswers(string answer);
-        public Quiz ReturnCounters();
+        public List<Quiz> ReturnCounters();
     }
 }
