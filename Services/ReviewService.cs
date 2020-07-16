@@ -21,8 +21,7 @@ namespace programmersGuide.Services
 
         public async Task SaveReview(ReviewDTO reviewDTO)
         {
-            var result = new Review(reviewDTO);
-            await dbContext.AddAsync(result);
+            await dbContext.AddAsync(new Review(reviewDTO));
             await dbContext.SaveChangesAsync();
         }
 
