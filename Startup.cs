@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using programmersGuide.Context;
+using programmersGuide.Services;
+using programmersGuide.Services.Interfaces;
 using System;
 
 namespace programmersGuide
@@ -19,6 +21,7 @@ namespace programmersGuide
             services.AddMvc();
             services.AddDbContext<ApplicationDbContext>(options =>
                                                         options.UseNpgsql(Environment.GetEnvironmentVariable("ConnectionStrings")));
+            services.AddTransient<IReviewService, ReviewService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

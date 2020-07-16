@@ -6,7 +6,8 @@ namespace programmersGuide.Services.Interfaces
 {
     public interface IReviewService
     {
-        Task SaveReview(ReviewDTO reviewDTO);
-        Task<List<ReviewDTO>> LoadAllReviews();
+        public Task SaveReview(ReviewDTO reviewDTO);
+        public Task<List<ReviewDTO>> LoadAllReviews();
+        public Task<List<ReviewDTO>> RandomReviews(int reviewCount = 3);
     }
 }

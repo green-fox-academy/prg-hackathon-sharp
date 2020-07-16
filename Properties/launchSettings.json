@@ -12,7 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ConnectionStrings": "\"User ID=bufnlhcjhvgdkq;Password=71c9f976ff924f05905447375dcdf2a20813793b5ddb64070a325a56852eac3f;Host=ec2-46-137-79-235.eu-west-1.compute.amazonaws.com;Port=5432;Database=dbp4li6ogof188;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;\"",
+        "ConnectionStrings": "User ID=bufnlhcjhvgdkq;Password=71c9f976ff924f05905447375dcdf2a20813793b5ddb64070a325a56852eac3f;Host=ec2-46-137-79-235.eu-west-1.compute.amazonaws.com;Port=5432;Database=dbp4li6ogof188;Pooling=true;SSL Mode=Require;TrustServerCertificate=True;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
