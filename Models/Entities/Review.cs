@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using programmersGuide.Models.DTOs;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Threading.Tasks;
 
 namespace programmersGuide.Models
 {
     public class Review
     {
-        [Key]
         public long ID { get; set; }
         public DateTime Time {get; set;}
         public string Name { get; set; }  
@@ -18,15 +14,20 @@ namespace programmersGuide.Models
         public Int16 ContentRating { get; set; }
         public Int16 UXRating { get; set; }
         public string ReviewBody { get; set; }
-    }
 
-    public enum Role
-    {
-        [EnumMember(Value = "frontend")]
-        frontend,
-        [EnumMember(Value = "backend")]
-        backend,
-        [EnumMember(Value = "fullstack")]
-        fullstack
+        public Review()
+        {
+        }
+
+        public Review(ReviewDTO reviewDTO)
+        {
+            Time = reviewDTO.Date ?? default;
+            Name = reviewDTO.Name ?? default;
+            Role = reviewDTO.Role ?? default;
+            QuizRating = reviewDTO.QuizRating ?? default;
+            ContentRating = reviewDTO.ContentRating ?? default;
+            UXRating = reviewDTO.UXRating ?? default;
+            ReviewBody = reviewDTO.ReviewBody ?? default;
+        }
     }
 }
