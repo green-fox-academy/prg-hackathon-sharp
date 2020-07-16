@@ -11,10 +11,11 @@ namespace programmersGuide.Models
         public long ID { get; set; }
         public DateTime Time {get; set;}
         public string Name { get; set; }
-        public string Email { get; set; }
         public Role Role { get; set; }
-        public Int16 Rating { get; set; }
-        public string Review { get; set; }
+        public Int16 QuizRating { get; set; }
+        public Int16 ContentRating { get; set; }
+        public Int16 UXRating { get; set; }
+        public string ReviewBody { get; set; }
     }
 
     public enum Role
