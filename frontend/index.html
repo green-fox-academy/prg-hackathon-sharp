@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I want to be a programmer!</title>
+  <link rel="stylesheet" href="main.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navigation">
+    <ul class="navigation-list">
+      <li class="navigation-item"><a href="#">home</a></li>
+      <li class="navigation-item"><a href="#Questionary">test your skills</a></li>
+      <li class="navigation-item"><a href="#">review</a></li>
+      <li class="navigation-item"><a href="#">contact</a></li>
+    </ul>
+  </nav>
+  <header>
+
+    <div class="header-logo">
+      <div class="header-logo__image">
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <h1 id="hero-font" class="text-center hero-heading top-margin-50">WHAT KIND OF PROGRAMMER WILL YOU BE?</h1>
+    <p class="hero-text__container top-margin-50">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
+      perferendis, ut nulla nesciunt, repellendus consequuntur reiciendis ducimus labore, velit error quidem inventore
+      voluptatem eius omnis hic consequatur molestiae itaque! Officia.</p>
+    <div class="herobox-container top-margin-50">
+      <div class="herobox-item">
+        <h2>FRONT-END</h2>
+        <img src="images/front.svg" alt="FRONT-END">
+      </div>
+      <div class="herobox-item">
+        <h2>BACK-END</h2>
+        <img src="images/backend.png" alt="BACK-END">
+      </div>
+      <div class="herobox-item">
+        <h2>FULL-STACK</h2>
+        <img src="images/programmer.png" alt="FULL-STACK">
+      </div>
+    </div>
+    <div class="decide">
+      <p class="text-center heading-second hero-heading top-margin-50">Still not sure?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis neque nobis natus, facere, consequuntur
+        consequatur molestias placeat necessitatibus aut rem incidunt corporis adipisci dolorem earum corrupti eos
+        explicabo. Aperiam, maxime.</p>
+      <a href="#">Choose your path</a>
+    </div>
+  </section>
+  <section  class="test">
+    <div id="Questionary">
+     <h1 class="heading-second hero-heading">Questionary</h1>
+      <form action="/questionary" method="post">
+        ​
+        <br><label for="select1">In programming, out the options below, what interests you the most?</label>
+        <br><select class="select" id="select1"><br>
+          <option value="a">Creating beautiful, sleek and interactive interfaces for users.
+          </option>
+          <option value="b">Writing efficient algorithms and improving the performance.
+          </option>
+          <option value="c">Both options sounds like fun to me</option>
+        </select><br>
+        ​
+        <br><label for="select2">When you first visit a website and you notice that it is poorly designed, out of the
+          options below, what is your closest response?
+        </label>
+        <br><select class="select" id="select2"><br>
+          <option value="a">I would probably changes this, this and this, also i would change color scheme, because it
+            doesn’t fit well with the concept.
+          </option>
+          <option value="b">As long as the site does what it is supposed to do when i click on some buttons, I don’t
+            really care.
+          </option>
+          <option value="c">The interface is quite poor and it takes some time for the site to load. I wonder if the
+            server performance is just as bad as the front.</option>
+        </select><br>
+        ​
+        <br><label for="select3">When you first see some application, what amazes/impresses you the most?
+        </label>
+        <br><select class="select" id="select3"><br>
+          <option value="a">The sleek interface. How the components are arranged. The color schemes and animations.
+          </option>
+          <option value="b">The features and the performance of the application.
+          </option>
+          <option value="c">BOTH!
+          </option>
+        </select><br>
+        ​
+        ​
+        <br><label for="select4">If you were to choose from the list below, what would you want to build?
+        </label>
+        <br><select class="select" id="select4"><br>
+          <option value="a">Create better looking version of Facebook.
+          </option>
+          <option value="b">Improve performance of Google search engine.
+          </option>
+          <option value="c">Completely change color scheme, interactive features and improve response times of Twitter.
+          </option>
+        </select><br>
+        ​
+        <br><label for="select5">What sounds the best for you?</label>
+        <br><select class="select" id="select5"><br>
+          <option value="a">Make people work with beautifly looking pages.
+          </option>
+          <option value="b">Make people work with fast working pages.
+          </option>
+          <option value="c">Both</option>
+        </select><br>
+        ​
+        <br><button type="submit">Resolve</button>
+        ​
+        ​
+      </form>
+    </div>
+    ​
+    ​
+    ​
+    ​
+    <div id="reviewForm">
+      <form action="/review" method="post">
+        <fieldset>
+          <legend>Your review:</legend>
+          ​
+          ​
+          <br><label for="devType">What type of developer are you?</label>
+          <br><select class="select" id="devType"><br>
+            <option value="a">Front end</option>
+            <option value="b">Back end</option>
+            <option value="c">Full stack</option>
+          </select><br>
+          ​
+          <!--
+              <br><label for="stars">Stars</label>
+              <input type="text" name="stars" id="stars">
+  -->
+          ​
+          <br><label for="reviewPost">Write review here:</label>
+          ​
+          ​
+          ​
+          ​
+          <textarea type="text" id="revtext" rows="20" cols="50">
+  ​
+  </textarea>
+          ​
+          <br>
+          <br><label for="nickname" id="nickname">Enter your nickname</label><br>
+          <input type="text" name="nickname" placeholder="nickname" required><br>
+          ​
+          ​
+          <input type="datetime" hidden name="dateTimeRev">
+          ​
+          ​
+          <br><button type="submit">Finish review</button>
+          ​
+        </fieldset>
+      </form>
+    </div>
+
+  </section>
+  <section class="frontend">
+    <p>Frontend section</p>
+  </section>
+  <section class="backend">
+    <p>Backend section</p>
+  </section>
+  <section class="fullstack">
+    <p>Fullstack section</p>
+  </section>
+  <section class="review">
+    <p>Review section</p>
+  </section>
+  <section class="contact">
+    <p>Contact section!</p>
+  </section>
+</body>
+
+</html>
