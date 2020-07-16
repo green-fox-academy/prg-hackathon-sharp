@@ -22,6 +22,7 @@ namespace programmersGuide
             services.AddDbContext<ApplicationDbContext>(options =>
                                                         options.UseNpgsql(Environment.GetEnvironmentVariable("ConnectionStrings")));
             services.AddTransient<IReviewService, ReviewService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
