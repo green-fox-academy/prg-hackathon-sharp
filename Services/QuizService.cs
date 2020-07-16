@@ -1,12 +1,13 @@
 ﻿using programmersGuide.Context;
 using programmersGuide.Models.Entities;
+using programmersGuide.Services.Interfaces;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
 
 namespace programmersGuide.Services
 {
-    public class QuizService
+    public class QuizService : IQuizService
     {
         private readonly ApplicationDbContext dbContext;
 

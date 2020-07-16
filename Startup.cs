@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using programmersGuide.Context;
 using programmersGuide.Services;
+using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide
 {
@@ -14,7 +15,7 @@ namespace programmersGuide
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<QuizService>();
+            services.AddTransient<IQuizService, QuizService>();
             ConfigureDatabase(services);
         }
 
