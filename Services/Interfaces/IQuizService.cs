@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace programmersGuide.Services.Interfaces
 {
-    interface IQuizService
+    public interface IQuizService
     {
         public string ProcessAnswers(string answer);
         public Quiz ReturnCounters();

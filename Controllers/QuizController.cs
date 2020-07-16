@@ -1,19 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Services;
+using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
 {
     public class QuizController : Controller
     {
-        private readonly QuizService quizService;
+        private readonly IQuizService quizService;
 
-        public QuizController(QuizService quizService)
+        public QuizController(IQuizService quizService)
         {
             this.quizService = quizService;
         }
 
         [HttpPost("quiz")]
-        public IActionResult QuizAnswers(string answer)
+        public IActionResult QuizAnswers([FromBody]string answer)
         {
             var result = quizService.ProcessAnswers(answer);
             return Ok(result);
