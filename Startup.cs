@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using programmersGuide.Context;
+using programmersGuide.Services;
 
 namespace programmersGuide
 {
@@ -13,8 +14,8 @@ namespace programmersGuide
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<QuizService>();
             ConfigureDatabase(services);
-            services.AddDbContext<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +37,7 @@ namespace programmersGuide
 
         protected virtual void ConfigureDatabase(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>();
         }
     }
 }
