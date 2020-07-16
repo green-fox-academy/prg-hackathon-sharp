@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using programmersGuide.Models.DTOs;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Threading.Tasks;
 
 namespace programmersGuide.Models
 {
@@ -18,6 +17,17 @@ namespace programmersGuide.Models
         public Int16 ContentRating { get; set; }
         public Int16 UXRating { get; set; }
         public string ReviewBody { get; set; }
+
+        public Review(ReviewDTO reviewDTO)
+        {
+            Time = reviewDTO.Time ?? default;
+            Name = reviewDTO.Name ?? default;
+            Role = reviewDTO.Role ?? default;
+            QuizRating = reviewDTO.QuizRating ?? default;
+            ContentRating = reviewDTO.ContentRating ?? default;
+            UXRating = reviewDTO.UXRating ?? default;
+            ReviewBody = reviewDTO.ReviewBody ?? default;
+        }
     }
 
     public enum Role

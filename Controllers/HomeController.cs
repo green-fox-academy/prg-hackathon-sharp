@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
@@ -18,7 +19,15 @@ namespace programmersGuide.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = reviewService.LoadAllReviews();
+            return View(model);
+        }
+
+        [HttpPost("Review")]
+        public async Task<IActionResult> SaveReview(ReviewDTO reviewDTO)
+        {
+            await reviewService.SaveReview(reviewDTO);
+            return Redirect("Index");
         }
     }
 }
