@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace programmersGuide.Models
 {
-    public class Form
+    public class Review
     {
         public long ID { get; set; }
         public DateTime Time {get; set;}

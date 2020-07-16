@@ -1,6 +1,6 @@
 ﻿namespace programmersGuide.Services.Interfaces
 {
-    public interface IFormService
+    public interface IReviewService
     {
 
     }

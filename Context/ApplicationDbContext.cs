@@ -9,7 +9,7 @@ namespace programmersGuide.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Form> Forms { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
