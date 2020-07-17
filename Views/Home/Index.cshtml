@@ -1,6 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>Hello world!</p>
+
+<div class="hero">
+    <h1 class="hero-logotext--main TOP-MARGIN50 RIGHT-MARGIN30 LEFT-MARGIN30">Be a <span class="hero-logotext--sub">programmer!</span></h1>
+    <p class="hero-text TOP-MARGIN50 LEFT-MARGIN30 RIGHT-MARGIN30">Oh, hello there! So, you decided that you want to be a programmer? Hmm...let me see. First of all, you have to decide which way your journey will lead. Web development has various fields you can be involved in. If you’re more aesthetically inclined, you might enjoy creating user-friendly apps as a frontend developer. Or if you enjoy working through hardcore algorithms  (t’s not that hardcore but those backend guys love to call themselves that), perhaps backend development is for you. Or maybe you want to do all of that? Then fullstack is the way for you.</p>
+    <p class="hero-text TOP-MARGIN50">Nevertheless, the choice is up to you and we are here to help you through your first steps. So, no pressure here. Just take the path that is closest to your heart. And now. CHOOSE!</p>
+    <div class="path-container TOP-MARGIN50">
+        <div class="path-item">
+            <h3>front-end</h3>
+            <img src="/images/svg/html.svg" alt="HTML" />
+        </div>
+        <div class="path-item">
+            <h3>back-end</h3>
+            <img src="/images/svg/api.svg" alt="API" />
+        </div>
+        <div class="path-item">
+            <h3>full-stack</h3>
+            <img src="/images/svg/fullstack.svg" alt="FULLSTACK" />
+        </div>
+    </div>
+    <div class="decide-container TOP-MARGIN50">
+        <p class="decide-main TOP-MARGIN50">Can’t decide? Totally new to these concepts? Or you just really don’t know what is the best way for you? Fear not, we are here to help you with that!</p>
+        <p class="decide-sub TOP-MARGIN50">Take our First and New to this Environment (FINE) TEST (yeah, we know, but some programmers came up with this name). It will show you the right path and send you on an unexpected journey of wonder (and  a lot of programming). So, don’t hesitate and just take it. TAKE IT!</p>
+        <button class="btn-path TOP-MARGIN50">Choose a path!</button>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div id="Questionary">
+        <h2>Choose your path test</h2>
+        <form action="/questionary" method="post">
+
+            <label for="select1">In programming, out the options below, what interests you the most?</label>
+            <select class="select" id="select1">
+                <option value="a">
+                    Creating beautiful, sleek and interactive interfaces for users.
+                </option>
+                <option value="b">
+                    Writing efficient algorithms and improving the performance.
+                </option>
+                <option value="c">Both options sounds like fun to me</option>
+            </select>
+
+            <label for="select2">
+                When you first visit a website and you notice that it is poorly designed, out of the options below, what is your closest response?
+            </label>
+            <select class="select" id="select2">
+                <option value="a">
+                    I would probably changes this, this and this, also i would change color scheme, because it doesn’t fit well with the concept.
+                </option>
+                <option value="b">
+                    As long as the site does what it is supposed to do when i click on some buttons, I don’t really care.
+                </option>
+                <option value="c">The interface is quite poor and it takes some time for the site to load. I wonder if the server performance is just as bad as the front.</option>
+            </select>
+
+            <label for="select3">
+                When you first see some application, what amazes/impresses you the most?
+            </label>
+            <select class="select" id="select3">
+                <option value="a">
+                    The sleek interface. How the components are arranged. The color schemes and animations.
+                </option>
+                <option value="b">
+                    The features and the performance of the application.
+                </option>
+                <option value="c">
+                    BOTH!
+                </option>
+            </select>
+
+
+            <label for="select4">
+                If you were to choose from the list below, what would you want to build?
+            </label>
+            <select class="select" id="select4">
+                <option value="a">
+                    Create better looking version of Facebook.
+                </option>
+                <option value="b">
+                    Improve performance of Google search engine.
+                </option>
+                <option value="c">
+                    Completely change color scheme, interactive features and improve response times of Twitter.
+                </option>
+            </select><br>
+
+            <label for="select5">What sounds the best for you?</label>
+            <select class="select" id="select5">
+                <option value="a">
+                    Make people work with beautifly looking pages.
+                </option>
+                <option value="b">
+                    Make people work with fast working pages.
+                </option>
+                <option value="c">Both</option>
+            </select><br>
+
+            <button type="submit">Resolve</button>
+
+
+        </form>
+    </div>
