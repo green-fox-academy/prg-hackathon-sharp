@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
@@ -16,14 +17,9 @@ namespace programmersGuide.Controllers
 
         public IActionResult Index()
         {
+            //var model = reviewService.RandomReviews();
             return View();
         }
 
-        [HttpPost("Review")]
-        public async Task<IActionResult> SaveReview(ReviewDTO reviewDTO)
-        {
-            await reviewService.SaveReview(reviewDTO);
-            return Redirect("Index");
-        }
     }
 }
