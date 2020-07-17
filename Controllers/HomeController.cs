@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using programmersGuide.Models;
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ namespace programmersGuide.Controllers
             this.mPService = mpService;
             this.userManager = userManager;
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             ClaimsPrincipal currentUser = this.User;
@@ -51,12 +52,29 @@ namespace programmersGuide.Controllers
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost("Review")]
         public async Task<IActionResult> SaveReview(Review review)
         {
-            await reviewService.SaveReview(review);
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var user = await userManager.FindByIdAsync(currentUserName);
+            await reviewService.SaveReview(review, user);
             return Redirect("Index");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> UserProfile()
+        {
+            ClaimsPrincipal currentUser = this.User;
+            var vm = new HomeViewModel();
+            if (currentUser.Identity.Name != null)
+            {
+                var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                vm.User = await userManager.FindByIdAsync(currentUserName);
+            }
+            return View(vm);
         }
     }
 }

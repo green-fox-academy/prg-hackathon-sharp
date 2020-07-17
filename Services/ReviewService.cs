@@ -18,9 +18,11 @@ namespace programmersGuide.Services
             this.dbContext = dbContext;
         }
 
-        public async Task SaveReview(Review review)
+        public async Task SaveReview(Review review, User user)
         {
-
+            review.Time = DateTime.Now.Date;
+            review.ProgrammingPath = user.ProgrammingPath;
+            review.Name = user.Name;
             await dbContext.AddAsync(review);
             await dbContext.SaveChangesAsync();
         }
