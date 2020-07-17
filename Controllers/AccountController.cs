@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Models;
+using programmersGuide.Services.Interfaces;
 using System.Threading.Tasks;
 
 namespace programmersGuide.Controllers
