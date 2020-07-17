@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace programmersGuide.Models
 {
-    public class ViewModel
+    public class HomeViewModel
     {
         public Review Review { get; set; }
         public List<Review> Reviews { get; set; }
+        public User User { get; set; }
     }
 }

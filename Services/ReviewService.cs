@@ -33,7 +33,7 @@ namespace programmersGuide.Services
         {
             var Ids = dbContext.Reviews.Any() ? dbContext.Reviews.Select(r => r.ID).ToList() : new List<long>();
             var randomIds = new List<long>();
-            if (Ids.Count > reviewCount)
+            if (Ids.Count() > reviewCount)
             {
                 while (randomIds.Count() <= reviewCount)
                 {
