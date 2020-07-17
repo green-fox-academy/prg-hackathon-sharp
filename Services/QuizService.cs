@@ -23,26 +23,22 @@ namespace programmersGuide.Services
             if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
             {
                 result = "fullstack";
-                quiz.FullStack++;
             }
             else if (firstTwoPairs.FirstOrDefault().Key == 'a')
             {
                 result = "frontend";
-                quiz.FrontEnd++;
             }
             else
             {
                 result = "backend";
-                quiz.BackEnd++;
             }
             dbContext.SaveChanges();
             return result;
         }
 
-        public Quiz ReturnCounters()
+        public List<Quiz> ReturnCounters()
         {
-            var counter = dbContext.Quiz.FirstOrDefault();
-            return counter;
+            return dbContext.Quiz.ToList();
         }
     }
 }
