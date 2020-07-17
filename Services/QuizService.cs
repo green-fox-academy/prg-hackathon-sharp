@@ -1,4 +1,5 @@
-﻿using programmersGuide.Context;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using programmersGuide.Context;
 using programmersGuide.Models;
 using programmersGuide.Services.Interfaces;
 using System.Collections.Generic;
@@ -17,26 +18,46 @@ namespace programmersGuide.Services
 
         public string ProcessAnswers(string answer)
         {
-            var firstTwoPairs = answer.GroupBy(c => c).OrderByDescending(c => c.Count()).Take(2);
+            var firstTwoPairs = answer.GroupBy(c => c);
             var result = string.Empty;
             var number = 0;
             if (!dbContext.Quiz.Any())
             {
                 InitialQuizSeed();
             }
-            if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
+            if(firstTwoPairs.Count() >= 2)
             {
-                result = "fullstack";
-                number = 2;
-            }
-            else if (firstTwoPairs.FirstOrDefault().Key == 'a')
-            {
-                result = "frontend";
+                if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
+                {
+                    result = "fullstack";
+                    number = 2;
+                }
+                else if (firstTwoPairs.FirstOrDefault().Key == 'a')
+                {
+                    result = "frontend";
+                }
+                else
+                {
+                    result = "backend";
+                    number = 1;
+                }
             }
             else
             {
-                result = "backend";
-                number = 1;
+                if (firstTwoPairs.FirstOrDefault().Key == 'c')
+                {
+                    result = "fullstack";
+                    number = 2;
+                }
+                else if (firstTwoPairs.FirstOrDefault().Key == 'a')
+                {
+                    result = "frontend";
+                }
+                else
+                {
+                    result = "backend";
+                    number = 1;
+                }
             }
             dbContext.Quiz.FirstOrDefault(q => q.ProgrammingPath == (ProgrammingPath)number).ResultCount++;
             dbContext.SaveChanges();
