@@ -24,13 +24,5 @@ namespace programmersGuide.Models.DTOs
             ReviewBody = review.ReviewBody;
         }
     }
-    public enum Role
-    {
-        [EnumMember(Value = "frontend")]
-        frontend,
-        [EnumMember(Value = "backend")]
-        backend,
-        [EnumMember(Value = "fullstack")]
-        fullstack
-    }
+
 }
