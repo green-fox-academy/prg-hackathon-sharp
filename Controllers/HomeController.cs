@@ -1,6 +1,6 @@
+using programmersGuide.Models;
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
@@ -8,10 +8,12 @@ namespace programmersGuide.Controllers
     public class HomeController : Controller
     {
         private readonly IReviewService reviewService;
+        private readonly IMPService mPService;
 
-        public HomeController(IReviewService reviewService)
+        public HomeController(IReviewService reviewService, IMPService mpService)
         {
             this.reviewService = reviewService;
+            this.mPService = mpService;
         }
 
         public IActionResult Index()
@@ -19,10 +21,20 @@ namespace programmersGuide.Controllers
             return View();
         }
 
-        [HttpPost("Review")]
-        public async Task<IActionResult> SaveReview(ReviewDTO reviewDTO)
+        public IActionResult RegisterForm()
         {
-            await reviewService.SaveReview(reviewDTO);
+            return View();
+        }
+
+        public IActionResult LoginForm()
+        {
+            return View();
+        }
+
+        [HttpPost("Review")]
+        public async Task<IActionResult> SaveReview(Review review)
+        {
+            await reviewService.SaveReview(review);
             return Redirect("Index");
         }
     }

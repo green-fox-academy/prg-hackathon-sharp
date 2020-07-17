@@ -1,8 +1,7 @@
 ﻿using programmersGuide.Context;
-using programmersGuide.Models.Entities;
+using programmersGuide.Models;
 using programmersGuide.Services.Interfaces;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System.Linq;
 
 namespace programmersGuide.Services
@@ -15,34 +14,48 @@ namespace programmersGuide.Services
         {
             this.dbContext = dbContext;
         }
-        public string ProcessAnswers(string answer) 
+
+        public string ProcessAnswers(string answer)
         {
             var firstTwoPairs = answer.GroupBy(c => c).OrderByDescending(c => c.Count()).Take(2);
             var result = string.Empty;
-            var quiz = dbContext.Quiz.FirstOrDefault();
+            var number = 0;
+            if (!dbContext.Quiz.Any())
+            {
+                InitialQuizSeed();
+            }
             if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
             {
                 result = "fullstack";
-                quiz.FullStack++;
+                number = 2;
             }
             else if (firstTwoPairs.FirstOrDefault().Key == 'a')
             {
                 result = "frontend";
-                quiz.FrontEnd++;
             }
             else
             {
                 result = "backend";
-                quiz.BackEnd++;
+                number = 1;
             }
+            dbContext.Quiz.FirstOrDefault(q => q.ProgrammingPath == (ProgrammingPath)number).ResultCount++;
             dbContext.SaveChanges();
             return result;
         }
 
-        public Quiz ReturnCounters()
+        public List<Quiz> ReturnCounters()
         {
-            var counter = dbContext.Quiz.FirstOrDefault();
-            return counter;
+            return dbContext.Quiz.ToList();
+        }
+        public void InitialQuizSeed()
+        {
+            var frontendResult = new Quiz { ProgrammingPath = (ProgrammingPath)0, ResultCount = 0 };
+            var backendResult = new Quiz { ProgrammingPath = (ProgrammingPath)1, ResultCount = 0 };
+            var fullstackResult = new Quiz { ProgrammingPath = (ProgrammingPath)2, ResultCount = 0 };
+            dbContext.Quiz.Add(frontendResult);
+            dbContext.Quiz.Add(backendResult);
+            dbContext.Quiz.Add(fullstackResult);
+            dbContext.SaveChanges();
         }
     }
 }
