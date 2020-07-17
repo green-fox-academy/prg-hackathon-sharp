@@ -6,7 +6,7 @@ namespace programmersGuide.Models
     public class User : IdentityUser
     {
         public string Name { get; set; }
-        public string QuizAnswers { get; set; }
+        public string? QuizAnswers { get; set; }
         public ProgrammingPath? ProgrammingPath { get; set; }
     }
 
