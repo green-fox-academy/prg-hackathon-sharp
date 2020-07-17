@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Runtime.Serialization;
 
-namespace programmersGuide.Models.Entities
+namespace programmersGuide.Models
 {
     public class User : IdentityUser
     {

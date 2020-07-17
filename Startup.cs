@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using programmersGuide.Context;
-using programmersGuide.Models.Entities;
+using programmersGuide.Models;
 using programmersGuide.Services;
 using programmersGuide.Services.Interfaces;
 

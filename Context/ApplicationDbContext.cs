@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using programmersGuide.Models;
-using programmersGuide.Models.Entities;
 
 namespace programmersGuide.Context
 {

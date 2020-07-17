@@ -1,6 +1,7 @@
 ﻿using programmersGuide.Context;
-using programmersGuide.Models.Entities;
+using programmersGuide.Models;
 using programmersGuide.Services.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace programmersGuide.Services
@@ -35,10 +36,9 @@ namespace programmersGuide.Services
             return result;
         }
 
-        public Quiz ReturnCounters()
+        public List<Quiz> ReturnCounters()
         {
-            var counter = dbContext.Quiz.FirstOrDefault();
-            return counter;
+            return dbContext.Quiz.ToList();
         }
 
     }

@@ -20,20 +20,21 @@ namespace programmersGuide.Services
 
         public async Task SaveReview(Review review)
         {
-            await dbContext.AddAsync(new Review(review));
+
+            await dbContext.AddAsync(review);
             await dbContext.SaveChangesAsync();
         }
 
         public async Task<List<Review>> LoadAllReviews()
         {
-            return await dbContext.Reviews.Select(r => new Review(r)).ToListAsync();
+            return dbContext.Reviews.Any() ? await dbContext.Reviews.ToListAsync() : new List<Review>();
         }
 
         public async Task<List<Review>> RandomReviews(int reviewCount = 3)
         {
-            var Ids = dbContext.Reviews.Select(r => r.ID).ToList();
+            var Ids = dbContext.Reviews.Any() ? dbContext.Reviews.Select(r => r.ID).ToList() : new List<long>();
             var randomIds = new List<long>();
-            if (Ids.Count > reviewCount)
+            if (Ids.Count() > reviewCount)
             {
                 while (randomIds.Count() <= reviewCount)
                 {
@@ -43,11 +44,11 @@ namespace programmersGuide.Services
                         randomIds.Add(randId);
                     }
                 }
-                return await dbContext.Reviews.Where(r => randomIds.Contains(r.ID)).Select(r => new Review(r)).ToListAsync();
+                return await dbContext.Reviews.Where(r => randomIds.Contains(r.ID)).ToListAsync();
             }
             else
             {
-                return await dbContext.Reviews.Select(r => new Review(r)).ToListAsync();
+                return await dbContext.Reviews.ToListAsync();
             }
         }
     }
