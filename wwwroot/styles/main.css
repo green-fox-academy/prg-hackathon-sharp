@@ -166,35 +166,47 @@ body {
         cursor: pointer;
     }
 
-.form-wrapper {
+.form-wrapper-register {
     margin-top: 50px;
-    width: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper-login {
+    margin-top: 50px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .form-username {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
 .form-password {
-    
+    width: 100%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.form-wrapper input {
+.form-wrapper-register input,
+.form-wrapper-login input{
     margin-left: 20px;
     border: 0px;
     border-bottom: 2px solid rgba(99, 0, 179, 1);
     outline: none;
 }
 
-    .form-wrapper input:active,
-    .form-wrapper input:focus{
+    .form-wrapper-register input:active,
+    .form-wrapper-register input:focus,
+    .form-wrapper-login input:active,
+    .form-wrapper-login input:focus{
         border: 0px;
         border-bottom: 2px solid rgba(99, 0, 179, 1);
     }

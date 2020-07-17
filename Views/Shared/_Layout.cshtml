@@ -21,6 +21,14 @@
             <li class="navigation-item"><a href="#">carrier</a></li>
             <li class="navigation-item"><a href="#">test</a></li>
             <li class="navigation-item"><a href="#">about us</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="navigation-item">@Html.ActionLink("log out", "Logout", "Account")</li>
+            }
+            else
+            {
+                <li class="navigation-item">@Html.ActionLink("login", "LoginForm", "Home")</li>
+            }
         </ul>
     </nav>
 </header>

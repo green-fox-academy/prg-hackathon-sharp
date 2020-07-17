@@ -1,6 +1,6 @@
+using programmersGuide.Models;
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
@@ -24,10 +24,15 @@ namespace programmersGuide.Controllers
             return View();
         }
 
-        [HttpPost("Review")]
-        public async Task<IActionResult> SaveReview(ReviewDTO reviewDTO)
+        public IActionResult LoginForm()
         {
-            await reviewService.SaveReview(reviewDTO);
+            return View();
+        }
+
+        [HttpPost("Review")]
+        public async Task<IActionResult> SaveReview(Review review)
+        {
+            await reviewService.SaveReview(review);
             return Redirect("Index");
         }
     }
