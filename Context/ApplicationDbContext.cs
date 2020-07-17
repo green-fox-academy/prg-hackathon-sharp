@@ -1,17 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using programmersGuide.Models;
 using programmersGuide.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace programmersGuide.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Quiz> Quiz { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

@@ -1,4 +1,4 @@
-﻿using programmersGuide.Models.DTOs;
+using programmersGuide.Models.DTOs;
 using System;
 using System.ComponentModel.DataAnnotations;
 
