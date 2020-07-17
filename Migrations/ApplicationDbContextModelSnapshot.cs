@@ -239,7 +239,7 @@ namespace programmersGuide.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("ProgrammingPath")
+                    b.Property<int?>("ProgrammingPath")
                         .HasColumnType("integer");
 
                     b.Property<string>("QuizAnswers")

@@ -41,7 +41,9 @@ namespace programmersGuide.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    QuizAnswers = table.Column<string>(nullable: true),
+                    ProgrammingPath = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,9 +56,8 @@ namespace programmersGuide.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FullStack = table.Column<int>(nullable: false),
-                    BackEnd = table.Column<int>(nullable: false),
-                    FrontEnd = table.Column<int>(nullable: false)
+                    ProgrammingPath = table.Column<int>(nullable: false),
+                    ResultCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,7 +72,7 @@ namespace programmersGuide.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Time = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Role = table.Column<int>(nullable: false),
+                    ProgrammingPath = table.Column<int>(nullable: false),
                     Rating = table.Column<short>(nullable: false),
                     ReviewBody = table.Column<string>(nullable: true)
                 },
