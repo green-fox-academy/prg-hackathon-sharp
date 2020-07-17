@@ -1,30 +1,72 @@
+using programmersGuide.Models;
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace programmersGuide.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IReviewService reviewService;
+        private readonly IMPService mPService;
+        private readonly UserManager<User> userManager;
 
-        public HomeController(IReviewService reviewService)
+        public HomeController(IReviewService reviewService, IMPService mpService, UserManager<User> userManager)
         {
             this.reviewService = reviewService;
+            this.mPService = mpService;
+            this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        [AllowAnonymous]
+        public async Task<IActionResult> Index()
         {
-            var model = reviewService.LoadAllReviews();
-            return View(model);
+            ClaimsPrincipal currentUser = this.User;
+            var vm = new HomeViewModel();
+            if(currentUser.Identity.Name != null)
+            {
+                var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                vm.User = await userManager.FindByIdAsync(currentUserName);
+            }
+            return View(vm);
         }
 
+        public IActionResult RegisterForm()
+        {
+            return View();
+        }
+
+        public IActionResult LoginForm()
+        {
+            return View();
+        }
+
+        [Authorize]
         [HttpPost("Review")]
-        public async Task<IActionResult> SaveReview(ReviewDTO reviewDTO)
+        public async Task<IActionResult> SaveReview(Review review)
         {
-            await reviewService.SaveReview(reviewDTO);
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var user = await userManager.FindByIdAsync(currentUserName);
+            await reviewService.SaveReview(review, user);
             return Redirect("Index");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> UserProfile()
+        {
+            ClaimsPrincipal currentUser = this.User;
+            var vm = new HomeViewModel();
+            if (currentUser.Identity.Name != null)
+            {
+                var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                vm.User = await userManager.FindByIdAsync(currentUserName);
+            }
+            return View(vm);
         }
     }
 }

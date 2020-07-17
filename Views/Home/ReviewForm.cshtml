@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="hero">
+        <h2 class="hero-logotext--main TOP-MARGIN50">Add<span class="hero-logotext--sub"> Review</span></h2>
+        <form class="form-review TOP-MARGIN50" action="/review" method="post">
+            <div class="review-rating TOP-MARGIN10">
+                <label for="rating">Rate your experience</label>
+                <select class="select" id="rating" name="rating">
+                    <option value="1">☆</option>
+                    <option value="2">☆☆</option>
+                    <option value="3">☆☆☆</option>
+                    <option value="4">☆☆☆☆</option>
+                    <option value="5">☆☆☆☆☆</option>
+                </select>
+            </div>
+            <textarea class="TOP-MARGIN10" type="text" id="revtext" name="revtext" rows="5" cols="40" required autofocus placeholder="write your review here:" re>
+</textarea>
+            <button class="btn-register TOP-MARGIN10" type="submit">Add review</button>
+        </form>
+    </div>
+}
+else
+{
+    <h2>To leave review you have to <span class="hero-logotext--sub">@Html.ActionLink("register", "RegisterForm", "Home")</span></h2>
+}
+
