@@ -3,29 +3,32 @@
 @{ Layout = "~/Views/Shared/_Layout.cshtml"; }
 <div class="hero">
     <h1 class="hero-logotext--main TOP-MARGIN50 RIGHT-MARGIN30 LEFT-MARGIN30">@Model.User.UserName</h1>
-    @switch (Model.User.ProgrammingPath)
+    @switch (Model.User.ProgrammingPath.Value)
     {
         case programmersGuide.Models.ProgrammingPath.frontend:
-        <div class="path-container TOP-MARGIN50">
-            <div class="path-item">
-                <h3>front-end</h3>
-                <img src="/images/svg/html.svg" alt="HTML" />
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>front-end</h3>
+                    <img src="/images/svg/html.svg" alt="HTML" />
+                </div>
             </div>
-        </div>
+            break;
         case programmersGuide.Models.ProgrammingPath.backend:
-        <div class="path-container TOP-MARGIN50">
-            <div class="path-item">
-                <h3>back-end</h3>
-                <img src="/images/svg/api.svg" alt="API" />
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>back-end</h3>
+                    <img src="/images/svg/api.svg" alt="API" />
+                </div>
             </div>
-        </div>
+            break;
         case programmersGuide.Models.ProgrammingPath.fullstack:
-        <div class="path-container TOP-MARGIN50">
-            <div class="path-item">
-                <h3>full-stack</h3>
-                <img src="/images/svg/fullstack.svg" alt="FULLSTACK" />
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>full-stack</h3>
+                    <img src="/images/svg/fullstack.svg" alt="FULLSTACK" />
+                </div>
             </div>
-        </div>
+            break;
         default:
             break;
     }
