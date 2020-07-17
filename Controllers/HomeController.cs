@@ -48,8 +48,7 @@ namespace programmersGuide.Controllers
         [HttpPost("Review")]
         public async Task<IActionResult> SaveReview(Review review)
         {
-            ClaimsPrincipal currentUser = this.User;
-            var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUserName = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var user = await userManager.FindByIdAsync(currentUserName);
             await reviewService.SaveReview(review, user);
             return Redirect("Index");
