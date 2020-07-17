@@ -1,6 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p>Hello world!</p>
+
+<div class="hero">
+    <h1 class="hero-logotext--main TOP-MARGIN50 RIGHT-MARGIN30 LEFT-MARGIN30">Be a <span class="hero-logotext--sub">programmer!</span></h1>
+    <p class="hero-text TOP-MARGIN50 LEFT-MARGIN30 RIGHT-MARGIN30">Oh, hello there! So, you decided that you want to be a programmer? Hmm...let me see. First of all, you have to decide which way your journey will lead. Web development has various fields you can be involved in. If you’re more aesthetically inclined, you might enjoy creating user-friendly apps as a frontend developer. Or if you enjoy working through hardcore algorithms  (t’s not that hardcore but those backend guys love to call themselves that), perhaps backend development is for you. Or maybe you want to do all of that? Then fullstack is the way for you.</p>
+    <p class="hero-text TOP-MARGIN50">Nevertheless, the choice is up to you and we are here to help you through your first steps. So, no pressure here. Just take the path that is closest to your heart. And now. CHOOSE!</p>
+    <div class="path-container TOP-MARGIN50">
+        <div class="path-item">
+            <h3>front-end</h3>
+            <img src="/images/svg/html.svg" alt="HTML" />
+        </div>
+        <div class="path-item">
+            <h3>back-end</h3>
+            <img src="/images/svg/api.svg" alt="API" />
+        </div>
+        <div class="path-item">
+            <h3>full-stack</h3>
+            <img src="/images/svg/fullstack.svg" alt="FULLSTACK" />
+        </div>
+    </div>
+    <div class="decide-container TOP-MARGIN10">
+        <p class="decide-main TOP-MARGIN10 LEFT-MARGIN30 RIGHT-MARGIN30"><h2><span class="hero-logotext--main">Can’t decide?</span><span class="hero-logotext--sub"> Take our test!</span></h2> </p>
+        <button class="btn-path TOP-MARGIN10">Choose a path!</button>
+    </div>
+</div>
