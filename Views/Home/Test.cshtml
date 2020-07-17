@@ -1,78 +1,71 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div id="Questionary">
-        <h2>Choose your path test</h2>
-        <form action="/questionary" method="post">
+<div class="hero LEFT-MARGIN30 RIGHT-MARGIN30">
+    <h2 class="hero-logotext--main TOP-MARGIN50">Test your <span class="hero-logotext--sub">skills</span></h2>
+    <form class="quiz-form TOP-MARGIN50" action="/questionary" method="post">
+        <div class="quiz-form-q">
+            <p class="quiz-form-font">What’s on your mind right now?</p>
+            <div class="quiz-form-answers">
+                <input type="radio" id="answ01" name="ans1" value="a" required>
+                <label for="answ01">Facebook looks dated again, right?</label>
+                <input type="radio" id="answ02" name="ans1" value="b">
+                <label for="answ02">Those Googles searching times, maaan, takes ages.</label>
+                <input type="radio" id="answ03" name="ans1" value="c">
+                <label for="answ03">Twitter needs new colors, interactive thingies and don’t get me start on response time.</label>
+            </div>
+            
+        </div>
+        <div class="quiz-form-q">
+            <p class="quiz-form-font">First visit a website. Something feels edgy. Your first response?</p>
+            <div class="quiz-form-answers">
+                <input type="radio" id="answ21" name="ans2" value="a" required>
+                <label for="answ21">Change this and this. Also change the color scheme, it doesn’t fit well.</label>
+                <input type="radio" id="answ22" name="ans2" value="b">
+                <label for="answ22">Site does what it is supposed to do. Clicked on some buttons and they work. Rest? I don’t care.</label>
+                <input type="radio" id="answ23" name="ans2" value="c">
+                <label for="answ23">Interface is poor. Takes time for site to load. Is it that bad on server side too?</label>
+            </div>
+            
+        </div>
+        <div class="quiz-form-q">
+            <p class="quiz-form-font">On application, what impresses you the most?</p>
+            <div class="quiz-form-answers">
+                <input type="radio" id="answ31" name="ans3" value="a" required>
+                <label for="answ31">Interface, component arrangement, oooh and the colors, love them.</label>
+                <input type="radio" id="answ32" name="ans3" value="b">
+                <label for="answ32">Features and the performance of the application.</label>
+                <input type="radio" id="answ33" name="ans3" value="c">
+                <label for="answ33">Love it all!</label>
+            </div>
+            
+        </div>
+        <div class="quiz-form-q">
+            <p class="quiz-form-font">Over all, what really interests you?</p>
+            <div class="quiz-form-answers">
+                <input type="radio" id="answ41" name="ans4" value="a" required>
+                <label for="answ431">Beautiful, sleek and interactive interfaces.</label>
+                <input type="radio" id="answ42" name="ans4" value="b">
+                <label for="answ42">Efficient algorithms and improving the performance.</label>
+                <input type="radio" id="answ43" name="ans4" value="c">
+                <label for="answ43">Both sounds fun to me.</label>
+            </div>
+            
+        </div>
+        <div class="quiz-form-q">
+            <p class="quiz-form-font">Now, listen to your heart. What does it say?</p>
+            <div class="quiz-form-answers">
+                <input type="radio" id="answ51" name="ans5" value="a" required>
+                <label for="answ51">Make pages silky smooth</label>
+                <input type="radio" id="answ52" name="ans5" value="b">
+                <label for="answ52">Pages should work as fast as they can.</label>
+                <input type="radio" id="answ53" name="ans5" value="c">
+                <label for="answ53">Everything needs to be perfect.</label>
+            </div>
+            
 
-            <label for="select1">In programming, out the options below, what interests you the most?</label>
-            <select class="select" id="select1">
-                <option value="a">
-                    Creating beautiful, sleek and interactive interfaces for users.
-                </option>
-                <option value="b">
-                    Writing efficient algorithms and improving the performance.
-                </option>
-                <option value="c">Both options sounds like fun to me</option>
-            </select>
+        </div>
+        <input class="btn-register" type="submit" value="Send test">
+    </form>
+</div>
 
-            <label for="select2">
-                When you first visit a website and you notice that it is poorly designed, out of the options below, what is your closest response?
-            </label>
-            <select class="select" id="select2">
-                <option value="a">
-                    I would probably changes this, this and this, also i would change color scheme, because it doesn’t fit well with the concept.
-                </option>
-                <option value="b">
-                    As long as the site does what it is supposed to do when i click on some buttons, I don’t really care.
-                </option>
-                <option value="c">The interface is quite poor and it takes some time for the site to load. I wonder if the server performance is just as bad as the front.</option>
-            </select>
-
-            <label for="select3">
-                When you first see some application, what amazes/impresses you the most?
-            </label>
-            <select class="select" id="select3">
-                <option value="a">
-                    The sleek interface. How the components are arranged. The color schemes and animations.
-                </option>
-                <option value="b">
-                    The features and the performance of the application.
-                </option>
-                <option value="c">
-                    BOTH!
-                </option>
-            </select>
-
-
-            <label for="select4">
-                If you were to choose from the list below, what would you want to build?
-            </label>
-            <select class="select" id="select4">
-                <option value="a">
-                    Create better looking version of Facebook.
-                </option>
-                <option value="b">
-                    Improve performance of Google search engine.
-                </option>
-                <option value="c">
-                    Completely change color scheme, interactive features and improve response times of Twitter.
-                </option>
-            </select><br>
-
-            <label for="select5">What sounds the best for you?</label>
-            <select class="select" id="select5">
-                <option value="a">
-                    Make people work with beautifly looking pages.
-                </option>
-                <option value="b">
-                    Make people work with fast working pages.
-                </option>
-                <option value="c">Both</option>
-            </select><br>
-
-            <button type="submit">Resolve</button>
-
-
-        </form>
-    </div>
