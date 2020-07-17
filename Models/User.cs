@@ -7,7 +7,7 @@ namespace programmersGuide.Models
     {
         public string Name { get; set; }
         public string QuizAnswers { get; set; }
-        public ProgrammingPath ProgrammingPath { get; set; }
+        public ProgrammingPath? ProgrammingPath { get; set; }
     }
 
     public enum ProgrammingPath
