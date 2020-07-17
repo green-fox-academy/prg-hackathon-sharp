@@ -14,7 +14,8 @@ namespace programmersGuide.Services
         {
             this.dbContext = dbContext;
         }
-        public string ProcessAnswers(string answer) 
+
+        public string ProcessAnswers(string answer)
         {
             var firstTwoPairs = answer.GroupBy(c => c).OrderByDescending(c => c.Count()).Take(2);
             var result = string.Empty;
@@ -39,5 +40,6 @@ namespace programmersGuide.Services
         {
             return dbContext.Quiz.ToList();
         }
+
     }
 }
