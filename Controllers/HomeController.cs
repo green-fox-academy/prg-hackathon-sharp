@@ -16,7 +16,6 @@ namespace programmersGuide.Controllers
 
         public IActionResult Index()
         {
-            //var model = reviewService.LoadAllReviews();
             return View();
         }
 

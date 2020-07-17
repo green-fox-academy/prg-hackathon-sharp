@@ -12,6 +12,10 @@
     margin-top: 50px;
 }
 
+.TOP-MARGIN10 {
+    margin-top: 10px;
+}
+
 /*MAIN*/
 
 * {
@@ -79,7 +83,7 @@ body {
 
 .section {
     width: 100%;
-    height: 100%;
+    height: 90vh;
 }
 
 .hero {
@@ -113,7 +117,7 @@ body {
     border: 1px solid rgba(99, 0, 179, 1);
     border-radius: 6px;
     width: 250px;
-    height: 350px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
