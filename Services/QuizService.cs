@@ -47,7 +47,6 @@ namespace programmersGuide.Services
         {
             return dbContext.Quiz.ToList();
         }
-
         public void InitialQuizSeed()
         {
             var frontendResult = new Quiz { ProgrammingPath = (ProgrammingPath)0, ResultCount = 0 };
