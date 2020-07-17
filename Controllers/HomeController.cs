@@ -58,12 +58,12 @@ namespace programmersGuide.Controllers
             return View();
         }
 
-        public IActionResult Frontend()
+        public IActionResult Backend()
         {
             return View();
         }
 
-        public IActionResult Backend()
+        public IActionResult Frontend()
         {
             return View();
         }
@@ -72,8 +72,6 @@ namespace programmersGuide.Controllers
         {
             return View();
         }
-
-
 
         [Authorize]
         [HttpPost("Review")]
