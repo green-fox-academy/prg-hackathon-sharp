@@ -183,7 +183,7 @@ namespace programmersGuide.Migrations
                     b.Property<short>("Rating")
                         .HasColumnType("smallint");
 
-                    b.Property<string>("ReviewBody")
+                    b.Property<string>("RevTest")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Time")
@@ -239,7 +239,7 @@ namespace programmersGuide.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("ProgrammingPath")
+                    b.Property<int?>("ProgrammingPath")
                         .HasColumnType("integer");
 
                     b.Property<string>("QuizAnswers")
