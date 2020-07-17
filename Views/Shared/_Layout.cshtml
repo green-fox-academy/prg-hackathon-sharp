@@ -18,10 +18,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
-
-                <li class="navigation-item">@Html.ActionLink("Profile", "UserProfile", "Home")</li>
-
-                    <li class="navigation-item">@Html.ActionLink("reviews", "ReviewDisplay", "Home")</li>
+                 <li class="navigation-item">@Html.ActionLink("Profile", "UserProfile", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("test", "Test", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("about us", "ReviewForm", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("log out", "Logout", "Account")</li>
@@ -30,7 +27,6 @@
                 {
                     <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
                     <li class="navigation-item"><a href="#">career</a></li>
-                    <li class="navigation-item">@Html.ActionLink("reviews", "ReviewDisplay", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("register", "RegisterForm", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("login", "LoginForm", "Home")</li>
                 }
