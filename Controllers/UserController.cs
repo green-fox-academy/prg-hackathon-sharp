@@ -15,18 +15,11 @@ namespace programmersGuide.Controllers
             this.userManager = userManager;
         }
 
-        [HttpGet]
-        public IActionResult Register()
-        {
-            UserViewModel model = new UserViewModel();
-            return View("Register", model);
-        }
-
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register(UserViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model.Password.Equals(model.ConfirmPassword))
             {
                 User user = new User
                 {
@@ -38,7 +31,7 @@ namespace programmersGuide.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
-            return View(model);
+            return RedirectToAction("RegisterForm","Home",model);
         }
     }
 }

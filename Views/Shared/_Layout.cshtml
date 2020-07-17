@@ -9,29 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header">
-    <div class="header-logo LEFT-MARGIN30">
-        <img src="~/images/svg/logo.svg" alt="coding-logo" />
-        <p>Be a programmer!</p>
+    <header class="header">
+        <div class="header-logo LEFT-MARGIN30">
+            <img src="~/images/svg/logo.svg" alt="coding-logo" />
+            <p>Be a programmer!</p>
+        </div>
+        <nav class="header-navigation RIGHT-MARGIN30">
+            <ul class="navigation-list">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
+                    <li class="navigation-item"><a href="#">career</a></li>
+                    <li class="navigation-item"><a href="#">test</a></li>
+                    <li class="navigation-item">@Html.ActionLink("about us", "ReviewForm", "Home")</li>
+                    <li class="navigation-item">@Html.ActionLink("log out", "Logout", "Account")</li>
+                }
+                else
+                {
+                    <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
+                    <li class="navigation-item">@Html.ActionLink("register", "RegisterForm", "Home")</li>
+                    <li class="navigation-item"><a href="#">career</a></li>
+                    <li class="navigation-item"><a href="#">test</a></li>
+                    <li class="navigation-item">@Html.ActionLink("login", "LoginForm", "Home")</li>
+                }
+            </ul>
+        </nav>
+    </header>
+    <div class="section">
+        @RenderBody()
     </div>
-    <nav class="header-navigation RIGHT-MARGIN30">
-        <ul class="navigation-list">
-            <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
-            <li class="navigation-item">@Html.ActionLink("register", "RegisterForm", "Home")</li>
-            <li class="navigation-item"><a href="#">carrier</a></li>
-            <li class="navigation-item"><a href="#">test</a></li>
-            <li class="navigation-item">@Html.ActionLink("about us", "ReviewForm", "Home")</li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li class="navigation-item">@Html.ActionLink("log out", "Logout", "Account")</li>
-            }
-            else
-            {
-                <li class="navigation-item">@Html.ActionLink("login", "LoginForm", "Home")</li>
-            }
-        </ul>
-    </nav>
-</header>
 <div class="section">
     @RenderBody()
 </div>

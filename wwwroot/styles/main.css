@@ -170,6 +170,69 @@ body {
         cursor: pointer;
     }
 
+/* FRONT-END, BACK-END, FULL-STACK PAGES */
+
+.front-end, .back-end, .full-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.front-end-heading, .back-end-heading, .full-stack-heading {
+    margin-top: 200px;
+    color: rgba(99, 0, 179, 1);
+    text-align: center;
+}
+
+.front-end-subheading, .back-end-subheading, .full-stack-subheading {
+    color: rgba(99, 0, 179, 1);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.front-end-preview {
+    border: 1px solid #999;
+    width: 80%;
+    height: 300px;
+    margin: auto;
+}
+
+.back-end-preview, .full-stack-preview {
+    height: 300px;
+    width: 500px;
+    margin: auto;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+}
+
+.back-button {
+    background-color: rgba(99, 0, 179, 1);
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .back-button:hover {
+        background-color: white;
+        color: rgba(99, 0, 179, 1);
+        font-size: 2rem;
+        padding: 10px;
+        border-radius: 20px;
+        border: 2px solid rgba(99, 0, 179, 1);
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+.bold-text {
+    font-weight: 700;
+}
+
 .form-wrapper-register {
     margin-top: 50px;
     width: 350px;
@@ -233,7 +296,6 @@ body {
         color: rgba(99, 0, 179, 1);
         cursor: pointer;
     }
-
 .form-review {
     width: 450px;
     display: flex;

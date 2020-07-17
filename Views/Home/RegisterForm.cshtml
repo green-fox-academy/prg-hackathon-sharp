@@ -2,21 +2,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="hero">
-    <h2 class="hero-logotext--main TOP-MARGIN50">Register<span class="hero-logotext--sub"> form</span></h2>
-    <form class="form-wrapper-register">
-        <div class="form-username">
-            <label for="username" class="register-name">username</label>
-            <input type="text" id="username" />
-        </div>
-        <div class="form-password">
-            <label for="password" class="register-password">password</label>
-            <input type="text" id="password" />
-        </div>
-        <div class="form-password">
-            <label for="confirm-password" class="register-password">confirm password</label>
-            <input type="text" id="confirm-password" />
-        </div>
-        <input class="btn-register" type="submit" value="register" />
-    </form>
+    @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-wrapper-register" }))
+    {
+        <h2 class="hero-logotext--main TOP-MARGIN50">Register<span class="hero-logotext--sub"> form</span></h2>
+        <form class="form-wrapper-register">
+            <div class="form-username">
+                <label for="username" class="register-name">username</label>
+                <input type="text" id="username" name="Username" />
+            </div>
+            <div class="form-password">
+                <label for="password" class="register-password">password</label>
+                <input type="password" id="password" name="Password" />
+            </div>
+            <div class="form-password">
+                <label for="confirm-password" class="register-password">confirm password</label>
+                <input type="password" id="confirm-password" name="ConfirmPassword" />
+            </div>
+            <input class="btn-register" type="submit" value="register" />
+        </form>
+    }
+
 </div>
