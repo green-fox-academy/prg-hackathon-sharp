@@ -29,6 +29,11 @@ namespace programmersGuide.Controllers
             return View();
         }
 
+        public IActionResult ReviewForm()
+        {
+            return View();
+        }
+
         [HttpPost("Review")]
         public async Task<IActionResult> SaveReview(Review review)
         {
