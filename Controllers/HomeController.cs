@@ -1,10 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using programmersGuide.Models;
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 
 namespace programmersGuide.Controllers
 {
@@ -20,7 +20,6 @@ namespace programmersGuide.Controllers
             this.mPService = mpService;
             this.userManager = userManager;
         }
-
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
@@ -44,11 +43,35 @@ namespace programmersGuide.Controllers
             return View();
         }
 
+        public IActionResult ReviewForm()
+        {
+            return View();
+        }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+        public IActionResult Backend()
+        {
+            return View();
+        }
+        public IActionResult Frontend()
+        {
+            return View();
+        }
+        public IActionResult Fullstack()
+        {
+            return View();
+        }
+
         [Authorize]
         [HttpPost("Review")]
         public async Task<IActionResult> SaveReview(Review review)
         {
-            var currentUserName = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             var user = await userManager.FindByIdAsync(currentUserName);
             await reviewService.SaveReview(review, user);
             return Redirect("Index");
