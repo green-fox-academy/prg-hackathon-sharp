@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Models;
-using programmersGuide.Models.Entities;
 using System.Threading.Tasks;
 
 namespace programmersGuide.Controllers

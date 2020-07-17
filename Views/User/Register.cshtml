@@ -1,0 +1,61 @@
+﻿@model UserViewModel
+@using programmersGuide.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.lime-indigo.min.css" />
+    <link rel="stylesheet" href="~/Styles/styles.css" />
+    <script src="https://kit.fontawesome.com/59a839ad30.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">TheReddit</span>
+                <a class="mdl-navigation__link" href="/">Show trending</a>
+                <a class="mdl-navigation__link" href="/?filter=all">Show all posts</a>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="/">Home</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="mdl-navigation__link" href="Account/Logout">@User.Identity.Name [Logout]</a>
+                        <a class="mdl-navigation__link" href="Home/UserPosts">Show my posts</a>
+                    }
+                    else
+                    {
+                        <a class="mdl-navigation__link" href="~/Account/Login">Login</a>
+                        <a class="mdl-navigation__link" href="~/User/AddUser">Register</a>
+                    }
+                </nav>
+            </div>
+        </header>
+        @using (Html.BeginForm("Register", "User", FormMethod.Post))
+        {
+            <div class="mdl-textfield mdl-js-textfield">
+                <label class="mdl-textfield__label">Username</label>
+                <input class="mdl-textfield__input" name="Username" />
+            </div><br />
+            <div class="mdl-textfield mdl-js-textfield">
+                <label class="mdl-textfield__label" asp-for="Password">Password</label>
+                <input type="password" asp-for="Password" class="mdl-textfield__input" name="Password" />
+            </div><br />
+            <div class="mdl-textfield mdl-js-textfield">
+                <label class="mdl-textfield__label" asp-for="ConfirmPassword">Confirm password</label>
+                <input type="password" asp-for="ConfirmPassword" class="mdl-textfield__input" name="ConfirmPassword" />
+            </div><br />
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Registration" />
+            <a href="/">Cancel</a>
+        }
+    </div>
+</body>
+</html>

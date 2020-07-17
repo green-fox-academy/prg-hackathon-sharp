@@ -1,8 +1,7 @@
 ﻿using programmersGuide.Context;
-using programmersGuide.Models.Entities;
+using programmersGuide.Models;
 using programmersGuide.Services.Interfaces;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System.Linq;
 
 namespace programmersGuide.Services
@@ -15,7 +14,8 @@ namespace programmersGuide.Services
         {
             this.dbContext = dbContext;
         }
-        public string ProcessAnswers(string answer) 
+
+        public string ProcessAnswers(string answer)
         {
             var firstTwoPairs = answer.GroupBy(c => c).OrderByDescending(c => c.Count()).Take(2);
             var result = string.Empty;
@@ -40,5 +40,6 @@ namespace programmersGuide.Services
         {
             return dbContext.Quiz.ToList();
         }
+
     }
 }

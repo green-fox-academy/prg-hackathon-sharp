@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using programmersGuide.Models;
-using programmersGuide.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace programmersGuide.Controllers
@@ -23,7 +19,7 @@ namespace programmersGuide.Controllers
         public IActionResult Register()
         {
             UserViewModel model = new UserViewModel();
-            return View("AddUser", model);
+            return View("Register", model);
         }
 
         [HttpPost]
