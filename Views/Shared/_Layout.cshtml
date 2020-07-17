@@ -1,9 +1,10 @@
 ﻿﻿﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title</title>
+    <title>Programmers guide</title>
     <link href="~/styles/main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -18,9 +19,8 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
-                    <li class="navigation-item">@Html.ActionLink("Profile", "UserProfile", "Home")</li>
                     <li class="navigation-item"><a href="#">career</a></li>
-                    <li class="navigation-item"><a href="#">test</a></li>
+                    <li class="navigation-item">@Html.ActionLink("test", "Test", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("about us", "ReviewForm", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("log out", "Logout", "Account")</li>
                 }
@@ -29,7 +29,6 @@
                     <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("register", "RegisterForm", "Home")</li>
                     <li class="navigation-item"><a href="#">career</a></li>
-                    <li class="navigation-item"><a href="#">test</a></li>
                     <li class="navigation-item">@Html.ActionLink("login", "LoginForm", "Home")</li>
                 }
             </ul>
@@ -38,5 +37,8 @@
     <div class="section">
         @RenderBody()
     </div>
+<div class="section">
+    @RenderBody()
+</div>
 </body>
 </html>

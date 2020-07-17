@@ -26,7 +26,7 @@ namespace programmersGuide.Controllers
         {
             ClaimsPrincipal currentUser = this.User;
             var vm = new HomeViewModel();
-            if(currentUser.Identity.Name != null)
+            if (currentUser.Identity.Name != null)
             {
                 var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
                 vm.User = await userManager.FindByIdAsync(currentUserName);
