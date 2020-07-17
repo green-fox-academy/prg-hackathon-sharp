@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace programmersGuide.Models.Entities
 {
-    public class User
+    public class User : IdentityUser
     {
-        public long ID { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public QuizResult QuizResult { get; set; }
+        public string Name { get; set; }
     }
 }
