@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using programmersGuide.Models.DTOs;
 using programmersGuide.Services.Interfaces;
 
 namespace programmersGuide.Controllers
