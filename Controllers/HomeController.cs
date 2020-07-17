@@ -48,6 +48,8 @@ namespace programmersGuide.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Authorize]
         public IActionResult Test()
         {
             return View();

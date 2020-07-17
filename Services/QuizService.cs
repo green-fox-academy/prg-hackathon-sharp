@@ -15,7 +15,7 @@ namespace programmersGuide.Services
             this.dbContext = dbContext;
         }
 
-        public string ProcessAnswers(string answer)
+        public string ProcessAnswers(string answer, User user)
         {
             var firstTwoPairs = answer.GroupBy(c => c).OrderByDescending(c => c.Count()).Take(2);
             var result = string.Empty;
@@ -24,20 +24,42 @@ namespace programmersGuide.Services
             {
                 InitialQuizSeed();
             }
-            if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
+            if (firstTwoPairs.Count() >= 2)
             {
-                result = "fullstack";
-                number = 2;
-            }
-            else if (firstTwoPairs.FirstOrDefault().Key == 'a')
-            {
-                result = "frontend";
+                if (firstTwoPairs.FirstOrDefault().Key == 'c' || firstTwoPairs.ElementAt(0).Count() == firstTwoPairs.ElementAt(1).Count())
+                {
+                    result = "fullstack";
+                    number = 2;
+                }
+                else if (firstTwoPairs.FirstOrDefault().Key == 'a')
+                {
+                    result = "frontend";
+                }
+                else
+                {
+                    result = "backend";
+                    number = 1;
+                }
             }
             else
             {
-                result = "backend";
-                number = 1;
+                if (firstTwoPairs.FirstOrDefault().Key == 'c')
+                {
+                    result = "fullstack";
+                    number = 2;
+                }
+                else if (firstTwoPairs.FirstOrDefault().Key == 'a')
+                {
+                    result = "frontend";
+                }
+                else
+                {
+                    result = "backend";
+                    number = 1;
+                }
             }
+            var quizUser = dbContext.Users.FirstOrDefault(u => u.UserName == user.UserName);
+            quizUser.ProgrammingPath = (ProgrammingPath)number;
             dbContext.Quiz.FirstOrDefault(q => q.ProgrammingPath == (ProgrammingPath)number).ResultCount++;
             dbContext.SaveChanges();
             return result;

@@ -1,6 +1,7 @@
 ﻿@model programmersGuide.Models.HomeViewModel
 
 @{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
 <div class="hero">
     <h1 class="hero-logotext--main TOP-MARGIN50 RIGHT-MARGIN30 LEFT-MARGIN30">@Model.User.UserName</h1>
     @switch (Model.User.ProgrammingPath)

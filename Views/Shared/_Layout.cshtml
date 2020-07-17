@@ -1,9 +1,6 @@
-﻿<<<<<<< HEAD
+﻿
 ﻿<!DOCTYPE html>
-=======
-﻿﻿﻿﻿﻿<!DOCTYPE html>
 
->>>>>>> 489798c1ad2f941ded600e369fd7e1b2778e770b
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -23,7 +20,9 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="navigation-item">@Html.ActionLink("home", "Index", "Home")</li>
-                    <li class="navigation-item">@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+
+                <li class="navigation-item">@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+
                     <li class="navigation-item"><a href="#">career</a></li>
                     <li class="navigation-item">@Html.ActionLink("reviews", "ReviewDisplay", "Home")</li>
                     <li class="navigation-item">@Html.ActionLink("test", "Test", "Home")</li>
