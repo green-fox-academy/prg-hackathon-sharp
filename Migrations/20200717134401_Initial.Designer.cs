@@ -10,7 +10,7 @@ using programmersGuide.Context;
 namespace programmersGuide.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200717091007_Initial")]
+    [Migration("20200717134401_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,20 +151,17 @@ namespace programmersGuide.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("programmersGuide.Models.Entities.Quiz", b =>
+            modelBuilder.Entity("programmersGuide.Models.Quiz", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("BackEnd")
+                    b.Property<int>("ProgrammingPath")
                         .HasColumnType("integer");
 
-                    b.Property<int>("FrontEnd")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("FullStack")
+                    b.Property<int>("ResultCount")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -172,7 +169,34 @@ namespace programmersGuide.Migrations
                     b.ToTable("Quiz");
                 });
 
-            modelBuilder.Entity("programmersGuide.Models.Entities.User", b =>
+            modelBuilder.Entity("programmersGuide.Models.Review", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ProgrammingPath")
+                        .HasColumnType("integer");
+
+                    b.Property<short>("Rating")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("RevTest")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("programmersGuide.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -217,6 +241,12 @@ namespace programmersGuide.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<int?>("ProgrammingPath")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("QuizAnswers")
+                        .HasColumnType("text");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -239,33 +269,6 @@ namespace programmersGuide.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("programmersGuide.Models.Review", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<short>("Rating")
-                        .HasColumnType("smallint");
-
-                    b.Property<string>("ReviewBody")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Role")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Reviews");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -277,7 +280,7 @@ namespace programmersGuide.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("programmersGuide.Models.Entities.User", null)
+                    b.HasOne("programmersGuide.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -286,7 +289,7 @@ namespace programmersGuide.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("programmersGuide.Models.Entities.User", null)
+                    b.HasOne("programmersGuide.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -301,7 +304,7 @@ namespace programmersGuide.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("programmersGuide.Models.Entities.User", null)
+                    b.HasOne("programmersGuide.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -310,7 +313,7 @@ namespace programmersGuide.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("programmersGuide.Models.Entities.User", null)
+                    b.HasOne("programmersGuide.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

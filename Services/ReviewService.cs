@@ -21,7 +21,7 @@ namespace programmersGuide.Services
         public async Task SaveReview(Review review, User user)
         {
             review.Time = DateTime.Now.Date;
-            review.ProgrammingPath = user.ProgrammingPath;
+            review.ProgrammingPath = (ProgrammingPath)user.ProgrammingPath;
             review.Name = user.Name;
             await dbContext.AddAsync(review);
             await dbContext.SaveChangesAsync();

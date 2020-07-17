@@ -1,16 +1,35 @@
 ﻿@model programmersGuide.Models.HomeViewModel
 
 @{ Layout = "~/Views/Shared/_Layout.cshtml"; }
-
-<div class="back-end">
-    <h1 class="back-end-heading">User Profile</h1>
-    <h3 class="back-end-subheading">@Model.User.ProgrammingPath</h3>
-    <p class="LEFT-MARGIN30 RIGHT-MARGIN30">So backend huh? So you are that hardcore guy after all. Well as a “backender” you will have to manage the brain of our operations here. So, if the guys from the front end think of something in a way of functionality for instance google search bar, they will send you the question the user put in and it's your job here to find the right answer. Then send it back to front end so they can do their pretty-nitty sparkling staff we don’t really care about here in backend. And yeah, you are right. You will be blamed for everything. But it’s the beauty of it, right. To be a man behind a curtain, pulling all the strings (hope you get the pun by now 😉).</p>
-    <h3 class="back-end-subheading">Back-End programming languages</h3>
-    <p class="LEFT-MARGIN30 RIGHT-MARGIN30">What should you know? And this is the real beauty here. You are not required to know any specific language or framework. You know, it’s really your business what you do behind the curtain. So, you have a lot more operation space here. For instead <span class="bold-text">Ruby, .NET, PHP, Python</span> or <span class="bold-text">Java</span>. <span class="bold-text">MySQL</span> or <span class="bold-text">Oracle</span> should be your best friends too. Since you have to create and work with some databases. You know. To store stuff.</p>
-    <h3 class="back-end-subheading">Back-End preview</h3>
-    <iframe class="back-end-preview" src="https://www.youtube.com/embed/0Kv_k4ypj6o" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="button-div">
-        <span class="back-button">BACK</span>
-    </div>
+<div class="hero">
+    <h1 class="hero-logotext--main TOP-MARGIN50 RIGHT-MARGIN30 LEFT-MARGIN30">@Model.User.UserName</h1>
+    @switch (Model.User.ProgrammingPath)
+    {
+        case programmersGuide.Models.ProgrammingPath.frontend:
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>front-end</h3>
+                    <img src="/images/svg/html.svg" alt="HTML" />
+                </div>
+            </div>
+            break;
+        case programmersGuide.Models.ProgrammingPath.backend:
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>back-end</h3>
+                    <img src="/images/svg/api.svg" alt="API" />
+                </div>
+            </div>
+            break;
+        case programmersGuide.Models.ProgrammingPath.fullstack:
+            <div class="path-container TOP-MARGIN50">
+                <div class="path-item">
+                    <h3>full-stack</h3>
+                    <img src="/images/svg/fullstack.svg" alt="FULLSTACK" />
+                </div>
+            </div>
+            break;
+        default:
+            break;
+    }
 </div>

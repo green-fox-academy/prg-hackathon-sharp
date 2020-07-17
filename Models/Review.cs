@@ -9,6 +9,6 @@ namespace programmersGuide.Models
         public string Name { get; set; }  
         public ProgrammingPath ProgrammingPath { get; set; }
         public Int16 Rating { get; set; }
-        public string RevTest { get; set; }
+        public string RevText { get; set; }
     }
 }
