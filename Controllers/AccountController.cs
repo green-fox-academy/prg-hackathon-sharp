@@ -34,14 +34,14 @@ namespace programmersGuide.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
+                    return RedirectToAction("LoginForm", "Home", model);
                 }
             }
             ModelState.AddModelError("", "Failed to login.");
-            return View(model);
+            return RedirectToAction("LoginForm", "Home", model);
         }
 
-        
+
 
 
         [HttpGet]
