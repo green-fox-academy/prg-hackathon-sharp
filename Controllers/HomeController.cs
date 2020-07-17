@@ -53,14 +53,21 @@ namespace programmersGuide.Controllers
             return View();
         }
 
+        public IActionResult ReviewDisplay()
+        {
+            return View();
+        }
+
         public IActionResult Backend()
         {
             return View();
         }
+
         public IActionResult Frontend()
         {
             return View();
         }
+
         public IActionResult Fullstack()
         {
             return View();
