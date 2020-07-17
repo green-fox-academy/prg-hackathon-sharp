@@ -31,7 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
- 
 }
 
 .header {
@@ -48,16 +47,16 @@ body {
     align-items: center;
 }
 
-.header-logo img {
-    width: 70px;
-    height: auto;
-}
+    .header-logo img {
+        width: 70px;
+        height: auto;
+    }
 
-.header-logo p {
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-left: 10px; 
-}
+    .header-logo p {
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-left: 10px;
+    }
 
 .header-navigation {
     width: 30%;
@@ -69,17 +68,17 @@ body {
     list-style: none;
 }
 
-.navigation-item a{
+.navigation-item a {
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.navigation-item a:hover {
-    color: black;
-    cursor: pointer;
-    transition-duration: 300ms;
-}
+    .navigation-item a:hover {
+        color: #bdbdbd;
+        cursor: pointer;
+        transition-duration: 300ms;
+    }
 
 .section {
     width: 100%;
@@ -125,23 +124,23 @@ body {
     box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.path-item:hover {
-    transform: scale(1.05);
-    transition-duration: 300ms;
-    cursor: pointer;
-}
+    .path-item:hover {
+        transform: scale(1.05);
+        transition-duration: 300ms;
+        cursor: pointer;
+    }
 
-.path-item img {
-    margin-top: 20px;
-    width: 120px;
-    height: auto;
-}
+    .path-item img {
+        margin-top: 20px;
+        width: 120px;
+        height: auto;
+    }
 
-.path-item h3 {
-    color: rgba(99, 0, 179, 1);
-    font-weight: normal;
-    text-transform: uppercase;
-}
+    .path-item h3 {
+        color: rgba(99, 0, 179, 1);
+        font-weight: normal;
+        text-transform: uppercase;
+    }
 
 .decide-container {
     display: flex;
@@ -157,10 +156,63 @@ body {
     color: #fff;
     width: 250px;
     height: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
     .btn-path:hover {
         color: rgba(99, 0, 179, 1);
         background: #fff;
+        cursor: pointer;
+    }
+
+.form-wrapper {
+    margin-top: 50px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-username {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-password {
+    
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-wrapper input {
+    margin-left: 20px;
+    border: 0px;
+    border-bottom: 2px solid rgba(99, 0, 179, 1);
+    outline: none;
+}
+
+    .form-wrapper input:active,
+    .form-wrapper input:focus{
+        border: 0px;
+        border-bottom: 2px solid rgba(99, 0, 179, 1);
+    }
+
+.btn-register {
+    margin-top: 20px;
+    border: 2px solid rgba(99, 0, 179, 1);
+    background-color: rgba(99, 0, 179, 1);
+    border-radius: 10px;
+    color: white;
+    width: 200px;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+    .btn-register:hover {
+        background-color: white;
+        color: rgba(99, 0, 179, 1);
         cursor: pointer;
     }
