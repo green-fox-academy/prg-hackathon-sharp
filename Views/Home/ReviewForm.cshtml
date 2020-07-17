@@ -1,9 +1,5 @@
 ﻿@model programmersGuide.Models.HomeViewModel
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 @if (User.Identity.IsAuthenticated)
 {
     if (Model.User.ProgrammingPath != null)
