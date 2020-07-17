@@ -1,5 +1,3 @@
-﻿using programmersGuide.Models.DTOs;
-
 namespace programmersGuide.Models.Entities
 {
     public class Quiz

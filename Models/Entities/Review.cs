@@ -1,7 +1,5 @@
-using programmersGuide.Models.DTOs;
 using programmersGuide.Models.Entities;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace programmersGuide.Models
 {
@@ -18,13 +16,13 @@ namespace programmersGuide.Models
         {
         }
 
-        public Review(ReviewDTO reviewDTO)
+        public Review(Review review)
         {
-            Time = reviewDTO.Date ?? default;
-            Name = reviewDTO.Name ?? default;
-            ProgrammingPath = reviewDTO.Role ?? default;
-            Rating = reviewDTO.Rating ?? default;
-            ReviewBody = reviewDTO.ReviewBody ?? default;
+            Time = review.Time;
+            Name = review.Name ?? default;
+            ProgrammingPath = review.ProgrammingPath;
+            Rating = review.Rating;
+            ReviewBody = review.ReviewBody ?? default;
         }
     }
 }

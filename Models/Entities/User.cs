@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using programmersGuide.Models.DTOs;
 using System.Runtime.Serialization;
 
 namespace programmersGuide.Models.Entities
