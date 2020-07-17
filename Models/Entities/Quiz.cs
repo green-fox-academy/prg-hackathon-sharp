@@ -1,10 +1,15 @@
-﻿namespace programmersGuide.Models.Entities
+﻿using programmersGuide.Models.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace programmersGuide.Models.Entities
 {
     public class Quiz
     {
-        public int Id { get; set; }
-        public int FullStack { get; set; }
-        public int BackEnd { get; set; }
-        public int FrontEnd { get; set; }
+        public long Id { get; set; }
+        public Role Result { get; set; }
+        public long ResultCount { get; set; }
     }
 }

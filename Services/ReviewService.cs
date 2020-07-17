@@ -27,12 +27,12 @@ namespace programmersGuide.Services
 
         public async Task<List<ReviewDTO>> LoadAllReviews()
         {
-            return await dbContext.Reviews.Select(r => new ReviewDTO(r)).ToListAsync();
+            return dbContext.Reviews.Any() ? await dbContext.Reviews.Select(r => new ReviewDTO(r)).ToListAsync() : new List<ReviewDTO>();
         }
 
         public async Task<List<ReviewDTO>> RandomReviews(int reviewCount = 3)
         {
-            var Ids = dbContext.Reviews.Select(r => r.ID).ToList();
+            var Ids = dbContext.Reviews.Any() ? dbContext.Reviews.Select(r => r.ID).ToList() : new List<long>();
             var randomIds = new List<long>();
             if (Ids.Count > reviewCount)
             {
