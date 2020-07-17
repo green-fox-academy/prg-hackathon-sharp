@@ -40,6 +40,5 @@ namespace programmersGuide.Services
         {
             return dbContext.Quiz.ToList();
         }
-
     }
 }
