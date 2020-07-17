@@ -33,6 +33,7 @@ namespace programmersGuide
             services.AddAuthentication().AddCookie();
             services.AddTransient<IReviewService, ReviewService>();
             services.AddTransient<IQuizService, QuizService>();
+            services.AddSingleton<IMPService, MPService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
