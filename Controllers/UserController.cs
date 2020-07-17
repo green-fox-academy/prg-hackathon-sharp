@@ -19,7 +19,7 @@ namespace programmersGuide.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(UserViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model.Password.Equals(model.ConfirmPassword))
             {
                 User user = new User
                 {
