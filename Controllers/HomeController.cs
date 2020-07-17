@@ -48,5 +48,17 @@ namespace programmersGuide.Controllers
             await reviewService.SaveReview(review);
             return Redirect("Index");
         }
+
+        public async Task<IActionResult> UserProfile()
+        {
+            ClaimsPrincipal currentUser = this.User;
+            var vm = new HomeViewModel();
+            if (currentUser.Identity.Name != null)
+            {
+                var currentUserName = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                vm.User = await userManager.FindByIdAsync(currentUserName);
+            }
+            return View(vm);
+        }
     }
 }
